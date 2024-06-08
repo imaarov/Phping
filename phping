@@ -1,0 +1,51 @@
+#!/usr/bin/php
+<?php
+
+define('TEST_BASE_DIRECTORY', __DIR__ . "/tests/");
+define('TEST_DIRECTORIES', glob(TEST_BASE_DIRECTORY . '0*'));
+
+$dir = $test = null;
+
+
+do {
+    printerOfTests($dir, $test);
+
+    if(is_null($dir)) {
+        $dir = (int)readline('Enter the directory level: ');
+    } elseif(is_null($test)) {
+        $test  = (int)readline('Enter the test file for execute the test: ');
+    } else {
+        return;
+    }
+
+} while (true);
+
+function printerOfTests(?int $level = null, ?int $test = null)
+{
+    if ($level !== null) {
+        $testsFiles = glob(TEST_DIRECTORIES[$level] . '/*.php');
+        if($test !== null) {
+            print_r(execute_test($testsFiles[$test]));
+            return 2;
+        }
+        foreach ($testsFiles as $key => $testFile) {
+            echo $key . '-' . basename($testFile) . PHP_EOL;
+        }
+        return;
+
+    }
+    echo "\nChoose the level:\n";
+    foreach (TEST_DIRECTORIES as  $key => $dir) {
+        $filePath = explode(DIRECTORY_SEPARATOR, $dir);
+        echo $key . '-' . end($filePath) . PHP_EOL;
+
+    }
+}
+
+function execute_test($testDir)
+{
+    $testDir = explode(DIRECTORY_SEPARATOR, $testDir);
+    $c = count($testDir);
+    [$testDir, $testFile] = [$testDir[$c - 2], end($testDir)];
+    return shell_exec("vendor/bin/phpunit --bootstrap tests/bootstrap.php tests/$testDir/$testFile");
+}
