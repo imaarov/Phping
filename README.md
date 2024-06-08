@@ -47,24 +47,24 @@ Phping is a learning tool designed to help you get better at PHP by fixing error
 
 Here's an overview of the directory structure:
 
-```
-Phping/
-│
-├── README.md
-├── composer.json
-├── phping           # The executable file for running tests
-├── tests/
-│   ├── 01_Basics/
-│   │   ├── 01_TaskTest.php
-│   │   ├── 02_TaskTest.php
-│   │   └── ...
-│   └── bootstrap.php
-└── src/
-    ├── Basics/
-    │   ├── Task1.php
-    │   ├── Task2.php
-    │   └── ...
-```
+	```
+	Phping/
+	│
+	├── README.md
+	├── composer.json
+	├── phping           # The executable file for running tests
+	├── tests/
+	│   ├── 01_Basics/
+	│   │   ├── 01_TaskTest.php
+	│   │   ├── 02_TaskTest.php
+	│   │   └── ...
+	│   └── bootstrap.php
+	└── src/
+	    ├── Basics/
+	    │   ├── Task1.php
+	    │   ├── Task2.php
+	    │   └── ...
+	```
 
 ## 🔧 How to Use
 
