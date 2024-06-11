@@ -1,4 +1,4 @@
-# Phping: step by step learning php
+# Phping: step by step learning php 
 
 ![GitHub Repo stars](https://img.shields.io/github/stars/imaarov/Phping?style=for-the-badge&logo=github)
 ![GitHub forks](https://img.shields.io/github/forks/imaarov/Phping?style=for-the-badge&logo=github)
